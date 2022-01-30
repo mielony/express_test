@@ -5,6 +5,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var config = require('./config');
+const mongoose = require('mongoose');
+
+mongoose.connect(config.db);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'db connection error: '));
+db.once('open', () => {
+  console.log("db connected");
+});
 
 var indexRouter = require('./routes/index');
 var quizRouter = require('./routes/quiz');
