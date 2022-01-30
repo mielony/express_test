@@ -26,6 +26,9 @@ router.get('/', (req, res) => {
   res.render('admin', { title: 'Administracja' });
 });
 
+router.get('/news/add', (req, res) => {
+  
+})
 
 
 module.exports = router;
