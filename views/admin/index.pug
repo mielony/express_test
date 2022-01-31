@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p 
+    a(href='/admin/news/add')='Dodaj nowy artyk'
+  table 
+    tr 
+      th id 
+      th tytuł
+      th autor 
+      th akcja 
+    each item, index in data
+      tr 
+        td=index 
+        td=item.title 
+        td=item.author 
+        td
+          a(href=`/admin/news/delete/${item._id}`) Usuń
+

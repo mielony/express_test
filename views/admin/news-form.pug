@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  h1= title
+  if errors.errors !== undefined
+    each message in errors.errors
+        p=message
+
+  form(method='post')
+    p
+        label Tytul: 
+        input(type='text' name='title' value=body.title||'')
+    p
+        label Treść:
+        textarea(name='description')=body.description||''
+    p
+        lable Autor:
+        input(type='text' name='author' value=body.author||'')
+    p
+        input(type='submit' value='zapisz')
