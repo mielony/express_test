@@ -29,7 +29,6 @@ router.get('/news/delete/:id', (req, res) => {
 });
 
 router.get('/news/add', (req, res) => {
- // const errors = {errors: ['', '']};
   res.render('admin/news-form', {title: 'Dodaj newsa', errors: {}, body:{} });
 })
  
@@ -38,7 +37,6 @@ router.post('/news/add', (req, res) => {
   const body = req.body;
   const newsData = new News(body);
   const errors = newsData.validateSync();
-  console.log("Errors**************", errors);
   if (errors !== undefined) {
     res.render('admin/news-form', {title: 'Dodaj newsa', errors, body});
   } 

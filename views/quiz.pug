@@ -2,4 +2,23 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  if show
+    form(method='post')
+      p Wybierz opcje 
+      ul
+        each item in data
+          li 
+            label=item.title
+            input(type='radio' name='quiz' value=item.id)
+      input(type='submit' value='Zaglosuj')
+      p Aby zobaczyc wyniki zaglosuj
+  else
+    p Głos oddany :) 
+      each item in data
+        li 
+          span=item.title
+          span="....." 
+          span=item.vote
+          span=' głosów'
+
+
