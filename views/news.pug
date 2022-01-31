@@ -2,4 +2,12 @@ extends layout
 
 block content
   h1= title
+  form(method='get')
+    input(type='text' name='search' value=search)
+    input(type='submit' value='szukaj')
   p Welcome to #{title}
+  each item in data 
+    h2(class='title')=item.title 
+    h4(class='date')=item.author 
+    h5=item.created
+    p=item.description 
